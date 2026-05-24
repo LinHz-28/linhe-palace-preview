@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>林赫宮</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="intro">
+      <div class="seal" aria-hidden="true">林赫宮</div>
+      <div>
+        <p class="eyebrow">長版八字・紫微斗數合參</p>
+        <h1>林赫宮</h1>
+        <p class="lead">輸入出生資料與收件信箱，付款完成後自動產生長版 HTML 論命書並寄出。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <form id="orderForm">
+        <div class="grid">
+          <label>
+            <span>生日</span>
+            <input name="date" type="date" required>
+          </label>
+          <label>
+            <span>出生時間</span>
+            <input name="time" type="time" required>
+          </label>
+          <label>
+            <span>性別</span>
+            <select name="gender" required>
+              <option value="男">男</option>
+              <option value="女">女</option>
+            </select>
+          </label>
+          <label>
+            <span>出生地點</span>
+            <input name="location" placeholder="例如：彰化、桃園、台北" required>
+          </label>
+        </div>
+
+        <label>
+          <span>收件 Email</span>
+          <input name="email" type="email" placeholder="name@example.com" required>
+        </label>
+
+        <button id="submitButton" type="submit">前往付款</button>
+        <p id="message" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="details">
+      <div>
+        <h2>交付內容</h2>
+        <p>八字詳論、紫微斗數詳論、合參總論、2026-2028 近三年流年詳論，整理為完整 HTML 附件。</p>
+      </div>
+      <div>
+        <h2>處理時間</h2>
+        <p>付款完成後開始排隊生成。長版報告通常需要數分鐘，完成後會寄到指定信箱。</p>
+      </div>
+      <div>
+        <h2>資料用途</h2>
+        <p>出生資料僅用於產生本次報告。重大醫療、法律、投資決策仍應諮詢專業人士。</p>
+      </div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
