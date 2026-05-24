@@ -3,25 +3,66 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>林赫宮</title>
-  <link rel="stylesheet" href="/styles.css">
+  <title>林赫宮 · 命理數據殿</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=ZCOOL+XiaoWei&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- 背景：星空 + 符文 + 掃描線 -->
+  <div class="cosmos" aria-hidden="true">
+    <canvas id="starfield"></canvas>
+    <div class="bagua"></div>
+    <div class="bagua bagua--small"></div>
+    <div class="scanline"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
   <main class="shell">
+    <!-- 頂部小燈籠般的狀態列 -->
+    <div class="status-bar" aria-hidden="true">
+      <span class="dot"></span>
+      <span class="status-text">SYSTEM ONLINE ｜ 紫微宿曜運算中</span>
+      <span class="status-time" id="statusTime">--:--:--</span>
+    </div>
+
     <section class="intro">
-      <div class="seal" aria-hidden="true">林赫宮</div>
+      <div class="seal" aria-hidden="true">
+        <div class="seal-inner">
+          <span>林</span><span>赫</span><span>宮</span>
+        </div>
+        <svg class="seal-ring" viewBox="0 0 200 200">
+          <defs>
+            <path id="circlePath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/>
+          </defs>
+          <text font-size="11" fill="currentColor" letter-spacing="6">
+            <textPath href="#circlePath">乾 ☰　兌 ☱　離 ☲　震 ☳　巽 ☴　坎 ☵　艮 ☶　坤 ☷　</textPath>
+          </text>
+        </svg>
+      </div>
       <div>
-        <p class="eyebrow">長版八字・紫微斗數合參</p>
-        <h1>林赫宮</h1>
-        <p class="lead">輸入出生資料與收件信箱，付款完成後自動產生長版 HTML 論命書並寄出。</p>
+        <p class="eyebrow">◆ 長版八字 · 紫微斗數合參 ◆</p>
+        <h1>林赫宮<span class="h1-sub">LINHE PALACE</span></h1>
+        <p class="lead">輸入出生資料與收件信箱，付款完成後自動產生長版 HTML 論命書並寄送至您的信箱。</p>
+        <div class="ribbons">
+          <span class="ribbon">⌬ AI 演算</span>
+          <span class="ribbon">☯ 古法合參</span>
+          <span class="ribbon">✦ 流年三載</span>
+        </div>
       </div>
     </section>
 
     <section class="panel">
+      <div class="panel-deco" aria-hidden="true">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+      </div>
+      <h2 class="panel-title">啟卦 · 請奉上生辰</h2>
       <form id="orderForm">
         <div class="grid">
           <label>
-            <span>生日</span>
+            <span>生　日</span>
             <input name="date" type="date" required>
           </label>
           <label>
@@ -29,7 +70,7 @@
             <input name="time" type="time" required>
           </label>
           <label>
-            <span>性別</span>
+            <span>性　別</span>
             <select name="gender" required>
               <option value="男">男</option>
               <option value="女">女</option>
@@ -46,26 +87,38 @@
           <input name="email" type="email" placeholder="name@example.com" required>
         </label>
 
-        <button id="submitButton" type="submit">前往付款</button>
+        <button id="submitButton" type="submit">
+          <span class="btn-text">前 往 付 款</span>
+          <span class="btn-glyph">⌘</span>
+        </button>
         <p id="message" class="message" role="status"></p>
       </form>
     </section>
 
     <section class="details">
       <div>
+        <span class="card-num">壹</span>
         <h2>交付內容</h2>
-        <p>八字詳論、紫微斗數詳論、合參總論、2026-2028 近三年流年詳論，整理為完整 HTML 附件。</p>
+        <p>八字詳論、紫微斗數詳論、合參總論、2026–2028 近三年流年詳論，整理為完整 HTML 附件。</p>
       </div>
       <div>
+        <span class="card-num">貳</span>
         <h2>處理時間</h2>
         <p>付款完成後開始排隊生成。長版報告通常需要數分鐘，完成後會寄到指定信箱。</p>
       </div>
       <div>
+        <span class="card-num">參</span>
         <h2>資料用途</h2>
         <p>出生資料僅用於產生本次報告。重大醫療、法律、投資決策仍應諮詢專業人士。</p>
       </div>
     </section>
+
+    <footer class="foot">
+      <span>☷ 林赫宮 LINHE PALACE ☰</span>
+      <span>v2.6 · 紫微演算引擎</span>
+    </footer>
   </main>
-  <script src="/app.js"></script>
+
+  <script src="app.js"></script>
 </body>
 </html>
